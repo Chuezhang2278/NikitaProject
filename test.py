@@ -21,10 +21,12 @@ if not all(col in df.columns for col in required_columns):
     print(f"Required columns not found. Columns present: {df.columns}")
     exit()
 
+#This bit of code is actually completely unecessary. Just keeping it in here because im lazy to re-do some naming#
+
 my_df = []
 my_dict = {}
 
-for index, row in df.iterrows():
+for index, row in df.iterrows(): 
     Item = row['Item'] 
     Test = row['test']
     Description = row['Description'] 
@@ -32,6 +34,7 @@ for index, row in df.iterrows():
 
     my_df.append([Item, Test, Description, Qty])
 
+#This bit of code is actually completely unecessary. Just keeping it in here because im lazy to re-do some naming#
 
 df_test = pd.DataFrame(my_df, columns=['Item','Test','Description','Qty'])  
 df2 = df_test.groupby(["Description"], sort=False, as_index=False).agg({"Item":'first', "Test":'first', "Qty":"sum"})
