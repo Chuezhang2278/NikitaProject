@@ -38,5 +38,4 @@ for index, row in df.iterrows():
 
 df_test = pd.DataFrame(my_df, columns=['Item','Test','Description','Qty'])  
 df2 = df_test.groupby(["Description"], sort=False, as_index=False).agg({"Item":'first', "Test":'first', "Qty":"sum"})
-df2.reindex(['Item', 'Test', 'Description', 'Qty. Sold'], axis="columns")
 df2.to_excel("output.xlsx", index=False)
